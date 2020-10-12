@@ -194,11 +194,12 @@ class Wagtravel extends Module
             $link = new Link();
 
             $this->context->smarty->assign([
-                'product' => $product,
-                'language' => $this->context->language,
-                'url' => $this->context->link->getProductLink($product),
-                'id_product_attribute' => (int)Tools::getValue('id_product_attribute'),
-                'cover' => $link->getImageLink($product->link_rewrite, $image['id_image'], 'home_default')
+                'wagtravelCode' => Configuration::get('WAGTRAVEL_CODE', null),
+                'wag_product' => $product,
+                'wag_language' => $this->context->language->iso_code,
+                'wag_url' => $this->context->link->getProductLink($product),
+                'wag_id_product_attribute' => (int)Tools::getValue('id_product_attribute'),
+                'wag_cover' => $link->getImageLink($product->link_rewrite, $image['id_image'], 'home_default')
             ]);
         }
 

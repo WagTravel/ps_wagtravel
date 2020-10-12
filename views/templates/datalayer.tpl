@@ -23,24 +23,24 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 {if (
-    !empty($product) &&
-    !empty($language) &&
-    !empty($url) &&
-    !empty($id_product_attribute) &&
-    !empty($cover)
+    !empty($wag_product) &&
+    !empty($wag_language) &&
+    !empty($wag_url) &&
+    !empty($wag_cover) &&
+    !empty($wagtravelCode)
 )}
     <script>
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
             'data' : {
-                'id' : '{$product->id}',
-                'language' : '{$language->iso_code}',
-                'url' : '{$url}',
-                'name' : '{$product->name}',
-                'price' : {$product->price},
-                'image' : '{$cover}',
+                'id' : '{$wag_product->id}',
+                'language' : '{$wag_language}',
+                'url' : '{$wag_url}',
+                'name' : '{$wag_product->name}',
+                'price' : {$wag_product->price},
+                'image' : '{$wag_cover}',
                 'extra': {
-                    'product_attribute_id': '{$id_product_attribute}'
+                    'product_attribute_id': '{$wag_id_product_attribute}'
                 }
             },
             'template' : 'product'
